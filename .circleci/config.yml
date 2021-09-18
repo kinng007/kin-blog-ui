@@ -1,0 +1,33 @@
+# This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
+version: 2.1
+
+orbs:
+  docker: circleci/docker@1.7.0
+  kubernetes: circleci/kubernetes@0.12.0
+  
+
+jobs:
+  k8s-deploy:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - kubernetes/install-kubectl
+      - kubernetes/install-kubeconfig:
+          kubeconfig: KUB_OCTETO_CONFIG
+      - kubernetes/create-or-update-resource:
+          get-rollout-status: true
+          resource-name: deployment/blog-frontend
+          namespace: blog-ui-kinng007 
+          resource-file-path: ./k8s/deploy.yml 
+          watch-timeout: '5m'
+
+workflows:
+  build-and-deploy-into-k8s:
+    jobs:
+      - docker/publish:
+            image: $DOCKER_LOGIN/kin-blog-frontend
+            tag: latest
+      - k8s-deploy:
+          requires:
+            - docker/publish
