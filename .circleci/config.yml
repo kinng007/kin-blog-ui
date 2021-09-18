@@ -11,6 +11,7 @@ jobs:
     steps:
       - checkout
       - run: node --version
+      - run: npm i ng -global
       - run: npm run build
 
 workflows:
