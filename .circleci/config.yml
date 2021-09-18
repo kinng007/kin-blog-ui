@@ -2,23 +2,27 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@4.7.0
   docker: circleci/docker@1.7.0
+  kubernetes: circleci/kubernetes@0.12.0
+  
 
 jobs:
-  build:
+  k8s-deploy:
     docker:
-      - image: cimg/node:16.8.0
+      # replace with your preferred image
+      - image: cimg/base:stable
     steps:
-      - checkout
-      - run: node --version
-      - run: npm install
-      - run: npm run build
-      - store_artifacts:
-          path: ./dist
+      - kubernetes/install-kubeconfig:
+          kubeconfig: KUB_OCTETO_CONFIG
+      - kubernetes/create-or-update-resource:
+          get-rollout-status: true 
+          namespace: blog-ui-kinng007 
+          resource-file-path: ./k8s/deploy.yml 
+          watch-timeout: '5m'
 
 workflows:
   deploy-ocketeo:
     jobs:
       - docker/publish:
             image: $DOCKER_LOGIN/kin-blog-frontend
+      - k8s-deploy
