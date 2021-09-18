@@ -1,0 +1,15 @@
+
+.blog {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.blog-content-container.open {
+    @extend .blog;
+    border-radius: 10px;
+}
+
+.blog-content.open {
+    padding-left: 30px;
+    padding-right: 30px;
+}

@@ -1,0 +1,25 @@
+<mat-spinner *ngIf="loading" diameter="40" color="primary"></mat-spinner>
+
+<ng-container *ngIf="!!blog && !loading">
+  <button
+    *ngIf="currentUser?._id === blog.author"
+    mat-fab
+    color="primary"
+    aria-label="Edit This Blog"
+    matTooltip="Edit This Blog"
+    class="blog-edit-button"
+    (click)="editBlog()"
+  >
+    <mat-icon>edit_note</mat-icon>
+  </button>
+  <h2>{{ blog?.title }}</h2>
+
+  <h4 class="blog-subtitle">{{ blog?.subtitle }}</h4>
+
+  <h5 class="blog-author">
+    {{ "Authored by " + author?.displayName }}
+    <span class="blog-date"> on {{ blog.createdOn | date: "fullDate" }}</span>
+  </h5>
+  <hr />
+</ng-container>
+<div id="read-blog"></div>

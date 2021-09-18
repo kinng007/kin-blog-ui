@@ -1,0 +1,36 @@
+<h2>Welcome to Kin Blog!</h2>
+<mat-spinner *ngIf="loading" diameter="40" color="primary"></mat-spinner>
+<button
+  *ngIf="!!currentUser"
+  mat-fab
+  color="primary"
+  aria-label="Create New Blog"
+  matTooltip="Create New Blog"
+  class="blog-create-button"
+  (click)="createBlog()"
+>
+  <mat-icon>post_add</mat-icon>
+</button>
+<mat-card class="blog-card" *ngFor="let blog of blogs" (click)="openBlog(blog)">
+  <mat-card-header>
+    <img
+      mat-card-avatar
+      [src]="users[blog.author]?.pictureUrl"
+      alt="Photo of a {{ users[blog.author]?.displayName }}"
+      class="author-image"
+    />
+    <mat-card-title class="blog-title">{{ blog.title }}</mat-card-title>
+    <mat-card-subtitle
+      >{{ "Authored by " + users[blog.author]?.displayName }}
+      <span> on {{ blog.createdOn | date: "fullDate" }}</span>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ blog.subtitle }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions *ngIf="currentUser?._id === blog.author">
+    <button mat-button (click)="editBlog(blog)">Edit</button>
+  </mat-card-actions>
+</mat-card>

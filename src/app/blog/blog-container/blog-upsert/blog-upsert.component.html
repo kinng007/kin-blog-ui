@@ -1,0 +1,55 @@
+<div class="blog-container">
+  <form class="blog-form">
+    <mat-form-field class="blog-full-width" appearance="outline">
+      <mat-label>Blog Title</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Summary/Title of the blog post"
+        name="blog-title"
+        [(ngModel)]="title"
+        [required]="true"
+      />
+    </mat-form-field>
+    <mat-form-field class="blog-full-width" appearance="outline">
+      <mat-label>Blog Subtitle</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Give a little bit more information on what the blog post is about"
+        name="blog-subtitle"
+        [(ngModel)]="subtitle"
+        [required]="true"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="blog-full-width" appearance="outline">
+      <mat-label>Blog Content</mat-label>
+      <mat-editorjs
+        placeholder="Type your text here..."
+        [required]="true"
+        [(ngModel)]="blocks"
+        name="blog-content"
+      ></mat-editorjs>
+    </mat-form-field>
+  </form>
+
+  <div class="blog-actions">
+    <button
+      mat-raised-button
+      (click)="saveBlog()"
+      color="primary"
+      [disabled]="loading || !isBlogValid()"
+    >
+      Save Blog
+    </button>
+    <button
+      mat-raised-button
+      (click)="backHome()"
+      color="accent"
+      [disabled]="loading"
+    >
+      Cancel
+    </button>
+  </div>
+</div>

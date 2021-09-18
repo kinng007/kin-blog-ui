@@ -1,0 +1,37 @@
+.blog-subtitle {
+    color: #0009;
+}
+
+.blog-author {
+    color: #0009;
+}
+
+.blog-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.blog-content-container.open {
+    margin: auto;
+    background: #eef5fa;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.blog-content.open {
+    background:white;
+    padding: 20px;
+    max-width: 750px;
+    margin: auto;
+}
+
+.blog-date {
+    font-size: 0.8rem;
+}
+
+.blog-edit-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+}

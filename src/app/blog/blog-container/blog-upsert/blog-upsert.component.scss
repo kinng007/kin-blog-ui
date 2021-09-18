@@ -1,0 +1,43 @@
+.blog {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.blog-form {
+    @extend .blog;
+    min-width: 150px;
+    width: 100%;
+}
+
+.blog-full-width {
+    width: 100%;
+}
+
+.blog-content-label {
+    @extend .blog;
+    color: #0009;
+}
+
+.blog-actions {
+    @extend .blog;
+    padding-top: 20px;
+}
+
+.blog-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.blog-content-container.open {
+    @extend .blog;
+    background: #eef5fa;
+    border-radius: 10px;
+    margin-top:10px;
+}
+
+.blog-content.open {
+    background:white;
+    margin: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}

@@ -1,0 +1,8 @@
+<mat-spinner *ngIf="!authIsLoaded" diameter=40 color="accent"></mat-spinner>
+
+<button *ngIf="authIsLoaded && !loggedIn" mat-raised-button (click)="signIn()" aria-label="Button to sign in via your google account"
+    matTooltip="Sign in with Google Account">
+    Sign In
+</button>
+
+<app-profile [user]="loggedUser" (onLogout)="signOut()" *ngIf="authIsLoaded && loggedIn"></app-profile>

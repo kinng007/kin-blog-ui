@@ -1,0 +1,21 @@
+.blog-card {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.blog-create-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+}
+
+.author-image {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.blog-title:hover {
+    text-decoration: underline;
+}
