@@ -21,4 +21,4 @@ workflows:
   deploy-ocketeo:
     jobs:
       - docker/publish:
-            image: kinng007/kin-blog-frontend
+            image: $DOCKER_LOGIN/kin-blog-frontend
