@@ -3,6 +3,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@4.7.0
+  docker: circleci/docker@1.7.0
 
 jobs:
   build:
@@ -19,4 +20,5 @@ jobs:
 workflows:
   deploy-ocketeo:
     jobs:
-      - build
+      - docker/publish:
+            image: kinng007/kin-blog-frontend
