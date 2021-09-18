@@ -18,7 +18,7 @@ jobs:
           kubeconfig: KUB_OCTETO_CONFIG
       - kubernetes/create-or-update-resource:
           get-rollout-status: true
-          resource-name: blog-frontend
+          resource-name: deployment/blog-frontend
           namespace: blog-ui-kinng007 
           resource-file-path: ./k8s/deploy.yml 
           watch-timeout: '5m'
@@ -26,9 +26,9 @@ jobs:
 workflows:
   deploy-ocketeo:
     jobs:
-      - docker/publish:
-            image: $DOCKER_LOGIN/kin-blog-frontend
-            tag: latest
-      - k8s-deploy:
-          requires:
-            - docker/publish
+      #- docker/publish:
+      #      image: $DOCKER_LOGIN/kin-blog-frontend
+      #      tag: latest
+      - k8s-deploy
+         # requires:
+          #  - docker/publish
