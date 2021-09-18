@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: blog-frontend-ctr
-          image: kinng007/kin-blog-frontend:ccdd6eaf7ecc013ab17a0fecf3d7e59924437228
+          image: kinng007/kin-blog-frontend:latest
           ports:
             - containerPort: 80
 
