@@ -6,7 +6,6 @@ orbs:
 
 jobs:
   build:
-    working_directory: /tmp
     docker:
       - image: cimg/node:16.8.0
     steps:
@@ -15,7 +14,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - store_artifacts:
-          path: /tmp/dist
+          path: ./dist
 
 workflows:
   deploy-ocketeo:
