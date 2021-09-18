@@ -12,6 +12,7 @@ jobs:
       # replace with your preferred image
       - image: cimg/base:stable
     steps:
+      - kubernetes/install-kubectl
       - kubernetes/install-kubeconfig:
           kubeconfig: KUB_OCTETO_CONFIG
       - kubernetes/create-or-update-resource:
@@ -23,6 +24,6 @@ jobs:
 workflows:
   deploy-ocketeo:
     jobs:
+      - k8s-deploy
       - docker/publish:
             image: $DOCKER_LOGIN/kin-blog-frontend
-      - k8s-deploy
