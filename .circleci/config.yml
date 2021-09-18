@@ -2,13 +2,18 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@4.1
+  node: circleci/node@4.7.0
+
+jobs:
+  build:
+    docker:
+      - image: cimg/node:16.8.0
+    steps:
+      - checkout
+      - run: node --version
+      - run: npm build
 
 workflows:
-  sample:
+  deploy-ocketeo:
     jobs:
-      - node/test:
-          version: '15.1'
-          # This is the node version to use for the `cimg/node` tag
-          # Relevant tags can be found on the CircleCI Developer Hub
-          # https://circleci.com/developer/images/image/cimg/node
+      - build
