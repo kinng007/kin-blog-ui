@@ -17,7 +17,8 @@ jobs:
       - kubernetes/install-kubeconfig:
           kubeconfig: KUB_OCTETO_CONFIG
       - kubernetes/create-or-update-resource:
-          get-rollout-status: true 
+          get-rollout-status: true
+          resource-name: blog-frontend
           namespace: blog-ui-kinng007 
           resource-file-path: ./k8s/deploy.yml 
           watch-timeout: '5m'
