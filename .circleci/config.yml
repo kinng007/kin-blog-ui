@@ -9,7 +9,6 @@ orbs:
 jobs:
   k8s-deploy:
     docker:
-      # replace with your preferred image
       - image: cimg/base:stable
     steps:
       - checkout
@@ -24,11 +23,11 @@ jobs:
           watch-timeout: '5m'
 
 workflows:
-  deploy-ocketeo:
+  build-and-deploy-into-k8s:
     jobs:
-      #- docker/publish:
-      #      image: $DOCKER_LOGIN/kin-blog-frontend
-      #      tag: latest
-      - k8s-deploy
-         # requires:
-          #  - docker/publish
+      - docker/publish:
+            image: $DOCKER_LOGIN/kin-blog-frontend
+            tag: latest
+      - k8s-deploy:
+          requires:
+            - docker/publish
