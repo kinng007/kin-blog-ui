@@ -24,7 +24,7 @@ RUN find /usr/local/app/dist/mdb-angular-ui-kit-free
 FROM nginx:latest
 
 # Copy the build output to replace the default nginx contents.
-COPY /usr/local/app/dist/mdb-angular-ui-kit-free /usr/share/nginx/html
+COPY --from=build /usr/local/app/dist/mdb-angular-ui-kit-free /usr/share/nginx/html
 
-# Expose port 8080
-EXPOSE 8080
+# Expose port 80
+EXPOSE 80
