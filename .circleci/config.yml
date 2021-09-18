@@ -20,6 +20,5 @@ jobs:
 workflows:
   deploy-ocketeo:
     jobs:
-      - build
       - docker/publish:
             image: $DOCKER_LOGIN/kin-blog-frontend
