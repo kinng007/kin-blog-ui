@@ -16,7 +16,7 @@ RUN npm install
 RUN npm run build
 
 #list files
-RUN find /usr/local/app/
+RUN find /usr/local/app/dist
 
 # Stage 2: Serve app with nginx server
 
