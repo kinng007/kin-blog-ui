@@ -12,6 +12,7 @@ jobs:
       # replace with your preferred image
       - image: cimg/base:stable
     steps:
+      - checkout
       - kubernetes/install-kubectl
       - kubernetes/install-kubeconfig:
           kubeconfig: KUB_OCTETO_CONFIG
