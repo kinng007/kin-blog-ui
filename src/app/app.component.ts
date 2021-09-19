@@ -5,7 +5,7 @@ import { RateService } from './rate-us/rate.service';
 import { switchMap, filter } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
-const PROJECT_NAME: string = 'Kin Blog';
+const PROJECT_NAME: string = 'Susmi Blog';
 const PROJECTS_SUFFIX: string = '@projects$';
 
 @Component({
