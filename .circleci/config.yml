@@ -22,15 +22,15 @@ jobs:
           resource-file-path: ./k8s/deploy.yml 
           watch-timeout: '5m'
       - run: 
-          command: kubctl rollout restart deployment/blog-frontend
+          command: kubectl rollout restart deployment/blog-frontend
           name: restart rollout
 
 workflows:
   build-and-deploy-into-k8s:
     jobs:
-      - docker/publish:
-            image: $DOCKER_LOGIN/kin-blog-frontend
-            tag: latest
-      - k8s-deploy:
-          requires:
-            - docker/publish
+      #- docker/publish:
+            #image: $DOCKER_LOGIN/kin-blog-frontend
+            #tag: latest
+      - k8s-deploy
+          #requires:
+            #- docker/publish
