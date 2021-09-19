@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://kinblog-api.mdbgo.io'
+  apiUrl: 'https://blog-backend-svc-blog-backend-kinng007.cloud.okteto.net'
 };
