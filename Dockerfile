@@ -23,6 +23,8 @@ RUN find /usr/local/app/dist/mdb-angular-ui-kit-free
 # Use official nginx image as the base image
 FROM nginx:latest
 
+COPY --from=build /usr/local/app/k8s/nginx.conf /etc/nginx/nginx.conf
+
 # Copy the build output to replace the default nginx contents.
 COPY --from=build /usr/local/app/dist/mdb-angular-ui-kit-free /usr/share/nginx/html
 
