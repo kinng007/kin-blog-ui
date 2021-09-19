@@ -4,7 +4,6 @@ version: 2.1
 orbs:
   docker: circleci/docker@1.7.0
   kubernetes: circleci/kubernetes@0.12.0
-  
 
 jobs:
   k8s-deploy:
@@ -18,8 +17,8 @@ jobs:
       - kubernetes/create-or-update-resource:
           get-rollout-status: true
           resource-name: deployment/blog-frontend
-          namespace: blog-ui-kinng007 
-          resource-file-path: ./k8s/deploy.yml 
+          namespace: blog-ui-kinng007
+          resource-file-path: ./k8s/deploy.yml
           watch-timeout: '5m'
       - run: 
           command: kubectl rollout restart deployment/blog-frontend
@@ -28,9 +27,9 @@ jobs:
 workflows:
   build-and-deploy-into-k8s:
     jobs:
-      #- docker/publish:
-            #image: $DOCKER_LOGIN/kin-blog-frontend
-            #tag: latest
-      - k8s-deploy
-          #requires:
-            #- docker/publish
+      - docker/publish:
+            image: $DOCKER_LOGIN/kin-blog-frontend
+            tag: latest
+      - k8s-deploy:
+          requires:
+            - docker/publish
