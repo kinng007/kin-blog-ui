@@ -28,8 +28,17 @@ workflows:
   build-and-deploy-into-k8s:
     jobs:
       - docker/publish:
+            filters:
+              branches:
+                ignore: 
+                  - /test-.*/
             image: $DOCKER_LOGIN/kin-blog-frontend
             tag: latest
       - k8s-deploy:
+          filters:
+            branches:
+              only:
+                - master
+                - /rc-.*/
           requires:
             - docker/publish
