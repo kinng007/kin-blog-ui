@@ -68,7 +68,7 @@ export class AppComponent implements OnInit {
     const shareData = {
       title: 'Kin Blog',
       text: 'A simple yet eligent blogging website made by Kinshuk Majee',
-      url: 'https://kinblog.mdbgo.io',
+      url: 'https://blog-frontend-svc-blog-ui-kinng007.cloud.okteto.net',
     };
     navigator.share(shareData).then(
       () => console.info('Shared sucessfully!'),
