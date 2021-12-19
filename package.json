@@ -1,7 +1,7 @@
 {
   "name": "blog-ui",
   "version": "1.0.0-beta4",
-  "description": "Example project from an angular.io guide.",
+  "description": "User interface for the famous KinBlog!",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
