@@ -21,7 +21,7 @@ jobs:
           resource-file-path: ./k8s/deploy.yml
           watch-timeout: '5m'
       - run: 
-          command: kubectl rollout restart deployment/blog-frontend
+          command: kubectl rollout restart deployment/blog-frontend -n blog-frontend-kinshukmajee
           name: restart rollout
 
 workflows:
