@@ -17,7 +17,7 @@ jobs:
       - kubernetes/create-or-update-resource:
           get-rollout-status: true
           resource-name: deployment/blog-frontend
-          namespace: blog-ui-kinng007
+          namespace: blog-frontend-kinshukmajee
           resource-file-path: ./k8s/deploy.yml
           watch-timeout: '5m'
       - run: 
