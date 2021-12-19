@@ -33,7 +33,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: blog-frontend-svc
+  name: blog
 
 spec:
   type: NodePort
