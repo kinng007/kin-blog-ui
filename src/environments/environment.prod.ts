@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://blog-backend-svc-blog-backend-kinng007.cloud.okteto.net'
+  apiUrl: 'https://blog-backend-svc-blog-backend-kinshukmajee.cloud.okteto.net'
 };
